@@ -18,18 +18,22 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Left Sidebar - Richest */}
-      <div className="fixed left-1/2 top-1/2 transform -translate-x-[calc(50%+23.5vw)] -translate-y-1/2 z-20 w-64">
-        <RichestSection />
-      </div>
-
-      {/* Right Sidebar - Big Winners */}
-      <div className="fixed left-1/2 top-1/2 transform translate-x-[calc(50%+9vw)] -translate-y-1/2 z-20 w-64">
-        <BigWinnersSection />
-      </div>
-
       {/* Main Game Area */}
       <div className="flex flex-col items-center justify-center min-h-screen px-4 py-20 relative z-10">
+        {/* Left Sidebar - Richest */}
+        <div className="absolute left-1/2 top-1/3 transform -translate-x-[calc(40%+26rem)] -translate-y-1/2 w-64 z-20">
+          <div className="leaderboard-container">
+            <RichestSection />
+          </div>
+        </div>
+
+        {/* Right Sidebar - Big Winners */}
+        <div className="absolute left-1/2 top-1/3 transform translate-x-[calc(50%+9rem)] -translate-y-1/2 w-64 z-20">
+          <div className="leaderboard-container">
+            <BigWinnersSection />
+          </div>
+        </div>
+
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-white mb-2 tracking-wider">
             COIN FLIP GAME
@@ -74,7 +78,7 @@ export default function Home() {
         <ModelViewerApp />
 
         {/* HEAD/TAIL Betting Panels */}
-        <div className="w-full max-w-4xl mb-6">
+        <div className="w-full max-w-4xl mt-2">
           <div className="grid grid-cols-2 gap-6">
             {/* HEAD Panel */}
             <div className="bg-gradient-to-br from-amber-100 to-amber-200 rounded-xl p-8 border-2 border-yellow-400 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
@@ -107,7 +111,7 @@ export default function Home() {
         </div>
 
         {/* Player Information Section */}
-        <div className="w-full max-w-4xl mt-6">
+        <div className="w-full max-w-4xl mt-1">
           <div className="bg-black/60 backdrop-blur-sm rounded-lg p-4 border border-gray-600">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
@@ -139,7 +143,7 @@ export default function Home() {
         </div>
 
         {/* Game History and Statistics */}
-        <div className="w-full max-w-4xl mt-6">
+        <div className="w-full max-w-4xl mt-1">
           <div className="bg-black/60 backdrop-blur-sm rounded-lg p-4 border border-gray-600">
             {/* Game History Grid */}
             <div className="mb-4">

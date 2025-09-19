@@ -83,7 +83,7 @@ const ModelViewerApp = () => {
   const glbFiles = ["/head.glb", "/tail.glb"];
 
   // Set the initial file directly instead of randomly
-  const [currentFile, setCurrentFile] = useState(glbFiles[0]);
+  const [currentFile, setCurrentFile] = useState(glbFiles[1]);
   const [fileName, setFileName] = useState("");
   const [duration, setDuration] = useState(5000);
   const [speed, setSpeed] = useState(1);
@@ -105,6 +105,17 @@ const ModelViewerApp = () => {
       updateCameraZoom(zoomLevel);
     }
   }, [orbitControlsRef, zoomLevel]);
+
+  // Auto-start animation after 3 seconds when component loads
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!isAnimating) {
+        startAnimation();
+      }
+    }, 3000); // 3 seconds
+
+    return () => clearTimeout(timer);
+  }, [isAnimating]);
 
   const toggleModel = () => {
     // Switch to the other file in the glbFiles array

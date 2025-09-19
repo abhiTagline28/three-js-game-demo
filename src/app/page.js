@@ -21,14 +21,14 @@ export default function Home() {
       {/* Main Game Area */}
       <div className="flex flex-col items-center justify-center min-h-screen px-4 py-20 relative z-10">
         {/* Left Sidebar - Richest */}
-        <div className="absolute left-1/2 top-1/3 transform -translate-x-[calc(40%+28rem)] -translate-y-1/2 w-64 z-20">
+        <div className="absolute left-1/2 top-[42%] transform -translate-x-[calc(40%+23rem)] -translate-y-1/2 w-64 z-20">
           <div className="leaderboard-container">
             <RichestSection />
           </div>
         </div>
 
         {/* Right Sidebar - Big Winners */}
-        <div className="absolute left-1/2 top-1/3 transform translate-x-[calc(50%+11rem)] -translate-y-1/2 w-64 z-20">
+        <div className="absolute left-1/2 top-[42%] transform translate-x-[calc(50%+7rem)] -translate-y-1/2 w-64 z-20">
           <div className="leaderboard-container">
             <BigWinnersSection />
           </div>

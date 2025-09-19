@@ -12,14 +12,35 @@ const ModelViewer = ({ url, duration, speed, isAnimating, onAnimationEnd }) => {
   const { scene, animations } = useGLTF(url);
   const { actions, mixer } = useAnimations(animations, group);
 
+  // Effect to apply yellow color to coin objects
+  useEffect(() => {
+    if (scene) {
+      scene.traverse((child) => {
+        if (child.isMesh) {
+          // Look for objects that might be coins (you can adjust this condition)
+          if (child.name.toLowerCase().includes('coin') || 
+              child.name.toLowerCase().includes('circle') ||
+              child.geometry.type === 'SphereGeometry' ||
+              child.geometry.type === 'CylinderGeometry') {
+            child.material = new THREE.MeshStandardMaterial({
+              color: '#FFD700', // Gold/Yellow color
+              metalness: 0.8,
+              roughness: 0.2,
+            });
+          }
+        }
+      });
+    }
+  }, [scene]);
+
   // Effect to handle playing and stopping the animation
   useEffect(() => {
     if (!actions || Object.keys(actions).length === 0) return;
     const allActions = Object.values(actions);
 
     allActions.forEach((action) => {
-      action.setLoop(THREE.LoopOnce, 1);
-      action.clampWhenFinished = true;
+      action.setLoop(THREE.LoopRepeat, Infinity);
+      action.clampWhenFinished = false;
 
       if (isAnimating) {
         action.reset().play();
@@ -101,16 +122,29 @@ const ModelViewerApp = () => {
   return (
     <div
       style={{
-        width: "100vw",
-        height: "100vh",
+        width: "70vw",
+        height: "80vh",
         position: "relative",
-        backgroundColor: "#282c34",
+        backgroundColor: "#2D5016",
+        backgroundImage: `
+          linear-gradient(45deg, transparent 25%, rgba(0,0,0,0.1) 25%),
+          linear-gradient(-45deg, transparent 25%, rgba(0,0,0,0.1) 25%),
+          linear-gradient(45deg, rgba(0,0,0,0.1) 75%, transparent 75%),
+          linear-gradient(-45deg, rgba(0,0,0,0.1) 75%, transparent 75%)
+        `,
+        backgroundSize: "20px 20px",
+        backgroundPosition: "0 0, 0 10px, 10px -10px, -10px 0px",
+        margin: "auto",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
-      <Canvas camera={{ position: [0, 1, 5] }}>
-        <ambientLight intensity={0.8} />
-        <directionalLight position={[10, 10, 5]} intensity={1} />
-        <pointLight position={[-10, -10, -10]} intensity={0.5} />
+      <Canvas camera={{ position: [0, 2, 0], rotation: [1, 2, 3] }}>
+        <ambientLight intensity={0.6} color="#ffd4a3" />
+        <directionalLight position={[10, 10, 5]} intensity={1.2} color="#ffd4a3" />
+        <pointLight position={[-10, -10, -10]} intensity={0.3} color="#ffd4a3" />
+        <pointLight position={[5, 5, 5]} intensity={0.4} color="#ffd4a3" />
         {currentFile && (
           <ModelViewer
             // Adding a key ensures the component fully resets when the model changes

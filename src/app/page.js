@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="font-sans min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
       {/* Top Bar */}
-      <div className="absolute top-0 left-0 right-0 z-30 bg-black/50 backdrop-blur-sm border-b border-gray-700">
+      <div className="absolute top-0 left-0 right-0 z-30 bg-black/50 backdrop-blur-sm">
         <div className="flex justify-between items-center px-4 py-3">
           <div className="flex items-center gap-2 text-white">
             <span className="text-yellow-400">🪙</span>
@@ -21,14 +21,14 @@ export default function Home() {
       {/* Main Game Area */}
       <div className="flex flex-col items-center justify-center min-h-screen px-4 py-20 relative z-10">
         {/* Left Sidebar - Richest */}
-        <div className="absolute left-1/2 top-1/3 transform -translate-x-[calc(40%+26rem)] -translate-y-1/2 w-64 z-20">
+        <div className="absolute left-1/2 top-1/3 transform -translate-x-[calc(40%+28rem)] -translate-y-1/2 w-64 z-20">
           <div className="leaderboard-container">
             <RichestSection />
           </div>
         </div>
 
         {/* Right Sidebar - Big Winners */}
-        <div className="absolute left-1/2 top-1/3 transform translate-x-[calc(50%+9rem)] -translate-y-1/2 w-64 z-20">
+        <div className="absolute left-1/2 top-1/3 transform translate-x-[calc(50%+11rem)] -translate-y-1/2 w-64 z-20">
           <div className="leaderboard-container">
             <BigWinnersSection />
           </div>
@@ -181,7 +181,7 @@ export default function Home() {
       </div>
 
       {/* Bottom Navigation Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-30 bg-black/90 backdrop-blur-sm border-t border-gray-700">
+      <div className="fixed bottom-0 left-0 right-0 z-30 bg-black/90 backdrop-blur-sm">
         <div className="flex justify-center items-center px-4 py-3">
           <div className="flex items-center gap-8">
             <div className="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center">

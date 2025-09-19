@@ -54,10 +54,10 @@ const SAMPLE_USERS = {
 // Richest Players Section
 const RichestSection = () => {
   return (
-    <div className="flex flex-col items-center">
-      {/* Vertical Banner */}
-      <div className="bg-gradient-to-b from-orange-500 to-yellow-500 rounded-lg p-4 mb-4 shadow-lg">
-        <h2 className="text-white font-bold text-lg tracking-wider writing-mode-vertical transform rotate-180">
+    <div className="flex items-start gap-4">
+      {/* Vertical Text Banner on the left */}
+      <div className="bg-gradient-to-b from-orange-500 to-yellow-500 rounded-lg p-4 shadow-lg flex-shrink-0 flex items-center justify-center min-h-[200px]">
+        <h2 className="text-white font-bold text-lg tracking-wider" style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', transform: 'rotate(180deg)' }}>
           RICHEST
         </h2>
       </div>
@@ -81,14 +81,7 @@ const RichestSection = () => {
 // Big Winners Section
 const BigWinnersSection = () => {
   return (
-    <div className="flex flex-col items-center">
-      {/* Vertical Banner */}
-      <div className="bg-gradient-to-b from-green-500 to-emerald-500 rounded-lg p-4 mb-4 shadow-lg">
-        <h2 className="text-white font-bold text-lg tracking-wider writing-mode-vertical transform rotate-180">
-          BIG WINNERS
-        </h2>
-      </div>
-      
+    <div className="flex items-start gap-4">
       {/* User Cards */}
       <div className="space-y-2">
         {SAMPLE_USERS.winners.map((user, index) => (
@@ -100,6 +93,13 @@ const BigWinnersSection = () => {
             className="transform hover:translate-x-1"
           />
         ))}
+      </div>
+      
+      {/* Vertical Text Banner on the right */}
+      <div className="bg-gradient-to-b from-green-500 to-emerald-500 rounded-lg p-4 shadow-lg flex-shrink-0 flex items-center justify-center min-h-[200px]">
+        <h2 className="text-white font-bold text-lg tracking-wider" style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', transform: 'rotate(180deg)' }}>
+          BIG WINNERS
+        </h2>
       </div>
     </div>
   );
@@ -116,7 +116,7 @@ const GameSidebar = ({ position = "left" }) => {
       fixed top-1/2 transform -translate-y-1/2 ${sidebarClasses}
       flex ${flexDirection} gap-6 z-20 max-h-[80vh] overflow-y-auto
       scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent
-      w-64
+      w-auto
     `}>
       {isLeft ? (
         <>

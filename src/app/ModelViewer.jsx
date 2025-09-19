@@ -89,6 +89,8 @@ const ModelViewerApp = () => {
   const [speed, setSpeed] = useState(1);
   const [controlsEnabled, setControlsEnabled] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [zoomLevel, setZoomLevel] = useState(9);
+  const [orbitControlsRef, setOrbitControlsRef] = useState(null);
 
   // This effect updates the display name when the model changes
   useEffect(() => {
@@ -96,6 +98,13 @@ const ModelViewerApp = () => {
       setFileName(currentFile.split("/").pop());
     }
   }, [currentFile]);
+
+  // Apply initial zoom level when OrbitControls are ready
+  useEffect(() => {
+    if (orbitControlsRef && zoomLevel === 9) {
+      updateCameraZoom(zoomLevel);
+    }
+  }, [orbitControlsRef, zoomLevel]);
 
   const toggleModel = () => {
     // Switch to the other file in the glbFiles array
@@ -119,6 +128,31 @@ const ModelViewerApp = () => {
   const handleAnimationEnd = () => {
     console.log(`Animation finished for: ${fileName}`);
     setIsAnimating(false);
+  };
+
+  const zoomIn = () => {
+    setZoomLevel((prev) => {
+      const newZoom = Math.min(prev + 1, 10); // Max zoom of 10
+      updateCameraZoom(newZoom);
+      return newZoom;
+    });
+  };
+
+  const zoomOut = () => {
+    setZoomLevel((prev) => {
+      const newZoom = Math.max(prev - 1, 1); // Min zoom of 1
+      updateCameraZoom(newZoom);
+      return newZoom;
+    });
+  };
+
+  const updateCameraZoom = (zoomValue) => {
+    if (orbitControlsRef) {
+      // Reset to default position first
+      const targetDistance = 10 / zoomValue; // Higher zoom = closer distance
+      orbitControlsRef.object.position.setLength(targetDistance);
+      orbitControlsRef.update();
+    }
   };
 
   return (
@@ -161,7 +195,12 @@ const ModelViewerApp = () => {
             onAnimationEnd={handleAnimationEnd}
           />
         )}
-        <OrbitControls enabled={controlsEnabled} />
+        <OrbitControls
+          ref={setOrbitControlsRef}
+          enabled={controlsEnabled}
+          enableZoom={true}
+          zoomSpeed={0.5}
+        />
       </Canvas>
       {fileName && (
         <div
@@ -180,7 +219,7 @@ const ModelViewerApp = () => {
       )}
 
       {/* Controls Panel */}
-      <div
+      {/* <div
         style={{
           position: "absolute",
           bottom: "10px",
@@ -230,10 +269,48 @@ const ModelViewerApp = () => {
             {speed.toFixed(1)}x
           </span>
         </div>
-      </div>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <label
+            style={{ color: "white", marginRight: "10px", minWidth: "150px" }}
+          >
+            Zoom:
+          </label>
+          <button
+            onClick={zoomOut}
+            style={{
+              padding: "5px 10px",
+              marginRight: "5px",
+              backgroundColor: "#4a5568",
+              color: "white",
+              border: "none",
+              borderRadius: "4px",
+              cursor: "pointer",
+            }}
+          >
+            -
+          </button>
+          <button
+            onClick={zoomIn}
+            style={{
+              padding: "5px 10px",
+              marginRight: "10px",
+              backgroundColor: "#4a5568",
+              color: "white",
+              border: "none",
+              borderRadius: "4px",
+              cursor: "pointer",
+            }}
+          >
+            +
+          </button>
+          <span style={{ color: "white", minWidth: "40px" }}>
+            {zoomLevel.toFixed(1)}x
+          </span>
+        </div>
+      </div> */}
 
       {/* Action Buttons */}
-      <div
+      {/* <div
         style={{
           position: "absolute",
           bottom: "10px",
@@ -264,7 +341,7 @@ const ModelViewerApp = () => {
         >
           {controlsEnabled ? "Disable Controls" : "Enable Controls"}
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

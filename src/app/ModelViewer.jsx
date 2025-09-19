@@ -125,8 +125,8 @@ const ModelViewerApp = () => {
     <div
       className="gaming-table-bg"
       style={{
-        width: "40vw",
-        height: "50vh",
+        width: "35vw",
+        height: "40vh",
         position: "relative",
         margin: "auto",
         display: "flex",

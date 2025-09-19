@@ -63,7 +63,7 @@ const RichestSection = () => {
       </div>
       
       {/* User Cards */}
-      <div className="space-y-2">
+      <div className="space-y-3">
         {SAMPLE_USERS.richest.map((user, index) => (
           <UserProfile
             key={user.id}

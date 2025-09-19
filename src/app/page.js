@@ -1,5 +1,8 @@
 import ModelViewerApp from "./ModelViewer";
 import { RichestSection, BigWinnersSection } from "../component/GameSidebar";
+import FramerExample from "./FramerExample";
+import HeadShow from "./components/HeadShow";
+import TailShow from "./components/TailShow";
 
 export default function Home() {
   return (
@@ -81,7 +84,7 @@ export default function Home() {
         <div className="w-full max-w-4xl mt-2">
           <div className="grid grid-cols-2 gap-6">
             {/* HEAD Panel */}
-            <div className="bg-gradient-to-br from-amber-100 to-amber-200 rounded-xl p-8 border-2 border-yellow-400 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
+            {/* <div className="bg-gradient-to-br from-amber-100 to-amber-200 rounded-xl p-8 border-2 border-yellow-400 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
               <div className="text-center">
                 <h2 className="text-3xl font-bold text-gray-800 mb-4">HEAD</h2>
                 <div className="text-6xl mb-4">👑</div>
@@ -92,10 +95,12 @@ export default function Home() {
                   <span className="text-yellow-500 text-2xl">⚡</span>
                 </div>
               </div>
-            </div>
+            </div> */}
+            <HeadShow />
 
             {/* TAIL Panel */}
-            <div className="bg-gradient-to-br from-green-100 to-green-200 rounded-xl p-8 border-2 border-yellow-400 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
+            <TailShow />
+            {/* <div className="bg-gradient-to-br from-green-100 to-green-200 rounded-xl p-8 border-2 border-yellow-400 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
               <div className="text-center">
                 <h2 className="text-3xl font-bold text-gray-800 mb-4">TAIL</h2>
                 <div className="text-6xl mb-4">👑</div>
@@ -106,7 +111,7 @@ export default function Home() {
                   <span className="text-yellow-500 text-2xl">⚡</span>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -202,6 +207,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <FramerExample />
     </div>
   );
 }

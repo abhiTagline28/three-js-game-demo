@@ -18,12 +18,14 @@ const ModelViewer = ({ url, duration, speed, isAnimating, onAnimationEnd }) => {
       scene.traverse((child) => {
         if (child.isMesh) {
           // Look for objects that might be coins (you can adjust this condition)
-          if (child.name.toLowerCase().includes('coin') || 
-              child.name.toLowerCase().includes('circle') ||
-              child.geometry.type === 'SphereGeometry' ||
-              child.geometry.type === 'CylinderGeometry') {
+          if (
+            child.name.toLowerCase().includes("coin") ||
+            child.name.toLowerCase().includes("circle") ||
+            child.geometry.type === "SphereGeometry" ||
+            child.geometry.type === "CylinderGeometry"
+          ) {
             child.material = new THREE.MeshStandardMaterial({
-              color: '#FFD700', // Gold/Yellow color
+              color: "#FFD700", // Gold/Yellow color
               metalness: 0.8,
               roughness: 0.2,
             });
@@ -121,29 +123,32 @@ const ModelViewerApp = () => {
 
   return (
     <div
+      className="gaming-table-bg"
       style={{
-        width: "70vw",
-        height: "80vh",
+        width: "40vw",
+        height: "50vh",
         position: "relative",
-        backgroundColor: "#2D5016",
-        backgroundImage: `
-          linear-gradient(45deg, transparent 25%, rgba(0,0,0,0.1) 25%),
-          linear-gradient(-45deg, transparent 25%, rgba(0,0,0,0.1) 25%),
-          linear-gradient(45deg, rgba(0,0,0,0.1) 75%, transparent 75%),
-          linear-gradient(-45deg, rgba(0,0,0,0.1) 75%, transparent 75%)
-        `,
-        backgroundSize: "20px 20px",
-        backgroundPosition: "0 0, 0 10px, 10px -10px, -10px 0px",
         margin: "auto",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        borderRadius: "20px",
+        border: "2px solid rgba(255, 215, 0, 0.3)",
+        boxShadow: "0 0 30px rgba(255, 215, 0, 0.2)",
       }}
     >
       <Canvas camera={{ position: [0, 2, 0], rotation: [1, 2, 3] }}>
         <ambientLight intensity={0.6} color="#ffd4a3" />
-        <directionalLight position={[10, 10, 5]} intensity={1.2} color="#ffd4a3" />
-        <pointLight position={[-10, -10, -10]} intensity={0.3} color="#ffd4a3" />
+        <directionalLight
+          position={[10, 10, 5]}
+          intensity={1.2}
+          color="#ffd4a3"
+        />
+        <pointLight
+          position={[-10, -10, -10]}
+          intensity={0.3}
+          color="#ffd4a3"
+        />
         <pointLight position={[5, 5, 5]} intensity={0.4} color="#ffd4a3" />
         {currentFile && (
           <ModelViewer

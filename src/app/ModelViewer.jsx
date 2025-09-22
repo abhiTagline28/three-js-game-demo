@@ -41,8 +41,10 @@ const ModelViewer = ({ url, duration, speed, isAnimating, onAnimationEnd }) => {
     const allActions = Object.values(actions);
 
     allActions.forEach((action) => {
-      action.setLoop(THREE.LoopRepeat, Infinity);
-      action.clampWhenFinished = false;
+      // action.setLoop(THREE.LoopRepeat, Infinity);
+      // action.clampWhenFinished = false;
+      action.setLoop(THREE.LoopOnce);
+      action.clampWhenFinished = true;
 
       if (isAnimating) {
         action.reset().play();

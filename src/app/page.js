@@ -6,6 +6,7 @@ import TailShow from "./components/TailShow";
 import HeadShow1 from "./components/HeadShow1";
 import HeadShow2 from "./components/HeadShow2";
 import HeadShow3 from "./components/HeadShow3";
+import HeadShow4 from "./components/HeadShow4";
 
 export default function Home() {
   return (
@@ -233,6 +234,15 @@ export default function Home() {
       <div className="w-full max-w-4xl mt-2">
         <div className="grid grid-cols-2 gap-6">
           <HeadShow3 />
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className="w-full max-w-4xl mt-2">
+        <div className="grid grid-cols-2 gap-6">
+          <HeadShow4 />
         </div>
       </div>
       <br />

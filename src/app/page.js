@@ -3,6 +3,7 @@ import { RichestSection, BigWinnersSection } from "../component/GameSidebar";
 import FramerExample from "./FramerExample";
 import HeadShow from "./components/HeadShow";
 import TailShow from "./components/TailShow";
+import HeadShow1 from "./components/HeadShow1";
 
 export default function Home() {
   return (
@@ -209,6 +210,15 @@ export default function Home() {
       </div>
 
       <FramerExample />
+      <div className="w-full max-w-4xl mt-2">
+        <div className="grid grid-cols-2 gap-6">
+          <HeadShow1 />
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 }

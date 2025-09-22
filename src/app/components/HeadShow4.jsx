@@ -6,6 +6,75 @@ import { useEffect, useState } from "react";
 const BOX_SIZE = 900; // larger bordered box
 const COIN_SIZE = 200; // bigger coin
 
+// Confetti burst that spirals out from center and falls
+const ConfettiBurst = ({ size = COIN_SIZE }) => {
+  const STRIPS = 42;
+  const center = size / 2;
+  const colors = ["#FF3B30", "#34C759", "#007AFF", "#FFCC00", "#AF52DE", "#FF9F0A"];
+  const strips = Array.from({ length: STRIPS }).map((_, i) => {
+    const baseAngle = (i / STRIPS) * Math.PI * 2;
+    const angleJitter = (Math.random() - 0.5) * 0.6;
+    const angle = baseAngle + angleJitter;
+    const burst = 120 + Math.random() * 140;
+    const x = Math.cos(angle) * burst;
+    const y = Math.sin(angle) * burst * 0.6;
+    const fall = 240 + Math.random() * 200;
+    const duration = 1.4 + Math.random() * 0.9;
+    const delay = Math.random() * 0.12;
+    const width = 6 + Math.floor(Math.random() * 6);
+    const height = 14 + Math.floor(Math.random() * 16);
+    const hue = colors[i % colors.length];
+    const rotateZ = (Math.random() * 360) | 0;
+    const spin = (Math.random() > 0.5 ? 1 : -1) * (360 + Math.random() * 540);
+    const sway = (Math.random() > 0.5 ? 1 : -1) * (20 + Math.random() * 24);
+    return { x, y, fall, duration, delay, width, height, hue, rotateZ, spin, sway, key: `${i}-${width}-${height}` };
+  });
+
+  return (
+    <div style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }}>
+      <motion.div
+        initial={{ opacity: 0.85, scale: 0.2 }}
+        animate={{ opacity: 0, scale: 1.8 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+        style={{
+          position: "absolute",
+          left: center - 36,
+          top: center - 36,
+          width: 72,
+          height: 72,
+          borderRadius: "9999px",
+          background:
+            "radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(255,215,0,0.45) 40%, rgba(255,215,0,0) 70%)",
+          filter: "blur(1px)",
+        }}
+      />
+      {strips.map((s) => (
+        <motion.span
+          key={s.key}
+          initial={{ x: center, y: center, opacity: 0, rotateZ: s.rotateZ }}
+          animate={{
+            x: [center, center + s.x, center + s.x + s.sway],
+            y: [center, center + s.y, center + s.y + s.fall],
+            rotateZ: [s.rotateZ, s.rotateZ + s.spin],
+            opacity: [1, 1, 0],
+          }}
+          transition={{ duration: s.duration, ease: "easeOut", delay: s.delay }}
+          style={{
+            position: "absolute",
+            width: s.width,
+            height: s.height,
+            borderRadius: 2,
+            background: s.hue,
+            boxShadow: `0 0 8px ${s.hue}55`,
+            transformOrigin: "center",
+            mixBlendMode: "plus-lighter",
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
 const HeadShow4 = () => {
   const posControls = useAnimation();
   const rotControls = useAnimation();
@@ -102,6 +171,7 @@ const HeadShow4 = () => {
             transform: "translate(-50%, -50%)",
           }}
         >
+          {isCentered && <ConfettiBurst size={COIN_SIZE} />}
           <motion.div
             animate={rotControls}
             initial={{ rotateY: 0, rotateZ: 0 }}

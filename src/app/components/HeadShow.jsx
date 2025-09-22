@@ -21,113 +21,137 @@ const HeadShow = () => {
       </div>
 
       {/* Animated boxes */}
-      <div className="absolute inset-0 flex justify-center items-start pt-4 gap-1 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none">
         <motion.div
           style={animatedBox}
+          initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{
-            y: [0, 200],
+            x: [0, 20],
+            y: [0, 180],
+            opacity: [0, 1],
           }}
           transition={{
             duration: 1,
             ease: "anticipate",
-            // repeat: Infinity,
-            repeatType: "reverse",
+            delay: 0.2,
           }}
         />
         <motion.div
           style={animatedBox}
+          initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{
-            y: [0, 155],
+            x: [0, 50],
+            y: [0, 200],
+            opacity: [0, 1],
           }}
           transition={{
             duration: 1,
             ease: "backIn",
-            // repeat: Infinity,
-            repeatType: "reverse",
+            delay: 0.4,
           }}
         />
         <motion.div
           style={animatedBox}
+          initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{
-            y: [0, 200],
+            x: [0, 90],
+            y: [0, 140],
+            opacity: [0, 1],
           }}
           transition={{
             duration: 1,
             ease: "backInOut",
-            // repeat: Infinity,
-            repeatType: "reverse",
+            delay: 0.6,
           }}
         />
+
         <motion.div
           style={animatedBox}
+          initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{
-            y: [0, 130],
+            x: [0, 120],
+            y: [0, 40],
+            opacity: [0, 1],
           }}
           transition={{
             duration: 1,
             ease: "circIn",
-            // repeat: Infinity,
-            repeatType: "reverse",
+            delay: 0.8,
           }}
         />
+
         <motion.div
           style={animatedBox}
+          initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{
-            y: [0, 190],
+            x: [0, 190],
+            y: [0, 50],
+            opacity: [0, 1],
           }}
           transition={{
             duration: 1,
             ease: "circInOut",
-            // repeat: Infinity,
-            repeatType: "reverse",
+            delay: 1.0,
           }}
         />
+
         <motion.div
           style={animatedBox}
+          initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{
-            y: [0, 150],
+            x: [0, 230],
+            y: [0, 10],
+            opacity: [0, 1],
           }}
           transition={{
             duration: 1,
             ease: "easeIn",
-            // repeat: Infinity,
-            repeatType: "reverse",
+            delay: 1.2,
           }}
         />
+
         <motion.div
           style={animatedBox}
+          initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{
-            y: [0, 200],
+            x: [0, 270],
+            y: [0, 20],
+            opacity: [0, 1],
           }}
           transition={{
             duration: 1,
             ease: "easeInOut",
-            // repeat: Infinity,
-            repeatType: "reverse",
+            delay: 1.4,
           }}
         />
+
         <motion.div
           style={animatedBox}
+          initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{
-            y: [0, 160],
+            x: [0, 320],
+            y: [0, 22],
+            opacity: [0, 1],
           }}
           transition={{
             duration: 1,
             ease: "easeOut",
-            // repeat: Infinity,
-            repeatType: "reverse",
+            delay: 1.6,
           }}
         />
+
         <motion.div
           style={animatedBox}
+          initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{
-            y: [0, 180],
+            x: [0, 380],
+            y: [0, -100],
+            opacity: [0, 1],
           }}
           transition={{
             duration: 1,
             ease: "linear",
-            // repeat: Infinity,
-            repeatType: "reverse",
+            delay: 1.4,
           }}
         />
       </div>

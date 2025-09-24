@@ -109,9 +109,10 @@ const SingleRowShowCards = () => {
   };
 
   return (
-    <div className="w-full" style={{ border: "1px solid red" }}>
+    <div className="w-full" style={{ width: 720, border: "1px solid red" }}>
       {/* Show Cards Button */}
-      <h1>Single Row Cards</h1>
+      <h1 className="text-center mt-2">Andar Bahar Game Example</h1>
+      <h1 className="text-center mt-2">Single Row Cards</h1>
       <div className="text-center mb-8 mt-5">
         <motion.button
           onClick={handleShowCards}
@@ -129,11 +130,11 @@ const SingleRowShowCards = () => {
       </div>
 
       {/* Cards Display Area */}
-      <div className="min-h-[200px] flex justify-center items-center mb-5">
+      <div className="min-h-[200px] flex justify-center items-center mb-5 overflow-x-auto">
         <AnimatePresence>
           {selectedCards.length > 0 && (
             <motion.div
-              className="flex flex-wrap justify-center gap-4 max-w-4xl"
+              className="inline-flex flex-nowrap justify-center gap-2 px-4"
               variants={containerVariants}
               initial="hidden"
               animate="visible"
@@ -150,40 +151,55 @@ const SingleRowShowCards = () => {
                     perspective: "1000px",
                   }}
                 >
-                  <div className="w-20 h-28 bg-white rounded-lg shadow-lg border-2 border-gray-400 hover:shadow-xl transition-shadow duration-300">
+                  {index === selectedCards.length - 1 && (
+                    <div className="absolute inset-[-6px] rounded-xl ring-4 ring-yellow-400 shadow-[0_0_0_2px_rgba(0,0,0,0.2)] pointer-events-none"></div>
+                  )}
+                  <div className="w-12 h-16 bg-white rounded-lg shadow-lg border-2 border-gray-300 hover:shadow-xl transition-shadow duration-300 overflow-hidden">
                     {/* Card Content */}
-                    <div className="p-2 h-full flex flex-col justify-between">
+                    <div className="p-1.5 h-full flex flex-col justify-between">
                       {/* Top-left corner */}
-                      <div className="flex flex-col items-start">
+                      <div className="flex flex-col items-start leading-none">
                         <div
-                          className={`text-lg font-bold ${getCardColor(
+                          className={`text-xs font-bold leading-none ${getCardColor(
                             card.suit
                           )}`}
                         >
                           {card.value}
                         </div>
-                        <div className={`text-sm ${getCardColor(card.suit)}`}>
+                        <div
+                          className={`text-[10px] leading-none ${getCardColor(
+                            card.suit
+                          )}`}
+                        >
                           {getSuitSymbol(card.suit)}
                         </div>
                       </div>
 
                       {/* Center suit symbol (larger) */}
                       <div className="flex-1 flex items-center justify-center">
-                        <div className={`text-2xl ${getCardColor(card.suit)}`}>
+                        <div
+                          className={`text-base leading-none ${getCardColor(
+                            card.suit
+                          )}`}
+                        >
                           {getSuitSymbol(card.suit)}
                         </div>
                       </div>
 
                       {/* Bottom-right corner (rotated) */}
-                      <div className="flex flex-col items-end transform rotate-180">
+                      <div className="flex flex-col items-end transform rotate-180 leading-none">
                         <div
-                          className={`text-lg font-bold ${getCardColor(
+                          className={`text-xs font-bold leading-none ${getCardColor(
                             card.suit
                           )}`}
                         >
                           {card.value}
                         </div>
-                        <div className={`text-sm ${getCardColor(card.suit)}`}>
+                        <div
+                          className={`text-[10px] leading-none ${getCardColor(
+                            card.suit
+                          )}`}
+                        >
                           {getSuitSymbol(card.suit)}
                         </div>
                       </div>

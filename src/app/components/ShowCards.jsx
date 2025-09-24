@@ -109,8 +109,10 @@ const ShowCards = () => {
   };
 
   return (
-    <div className="w-full" style={{ border: "1px solid red" }}>
+    <div className="w-full" style={{ width: 600, border: "1px solid red" }}>
       {/* Show Cards Button */}
+      <h1 className="text-center mt-2">Andar Bahar Game Example</h1>
+      <h1 className="text-center mt-2">Normal show 12 card dynamically</h1>
       <div className="text-center mb-8 mt-5">
         <motion.button
           onClick={handleShowCards}

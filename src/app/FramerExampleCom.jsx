@@ -57,7 +57,7 @@ const FramerExampleCom = () => {
       <br />
       <br />
       <br />
-      <div className="w-full max-w-4xl mt-2">
+      <div className="w-full max-w-4xl mt-2 ml-5">
         <div className="grid grid-cols-2 gap-6">
           <ShowCards />
         </div>
@@ -66,7 +66,7 @@ const FramerExampleCom = () => {
       <br />
       <br />
       <br />
-      <div className="w-full max-w-4xl mt-2">
+      <div className="w-full max-w-4xl mt-2 ml-5">
         <div className="grid grid-cols-2 gap-6">
           <SingleRowShowCards />
         </div>

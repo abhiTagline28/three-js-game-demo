@@ -1,11 +1,56 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import useSound from "use-sound";
 
 const HeadShow3 = () => {
   const [replayKey, setReplayKey] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [hasCompletedOnce, setHasCompletedOnce] = useState(false);
+
+  // Sound effects
+  const [playBackgroundMusic, { stop: stopBackgroundMusic }] = useSound(
+    "/sounds/background-music1.mp3",
+    {
+      loop: true,
+      volume: 0.3,
+    }
+  );
+
+  const [playCoinDrop] = useSound("/sounds/coin-drop.mp3", {
+    volume: 0.5,
+  });
+
+  const [playCoinReturn] = useSound("/sounds/coin-drop.mp3", {
+    volume: 0.5,
+  });
+
+  // Handle tab visibility changes to control background music
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        // Tab is hidden, stop background music
+        stopBackgroundMusic();
+      } else {
+        // Tab is visible, start background music
+        playBackgroundMusic();
+      }
+    };
+
+    // Add event listener for visibility change
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    // Start background music when component mounts (if tab is visible)
+    if (!document.hidden) {
+      playBackgroundMusic();
+    }
+
+    // Cleanup event listener on unmount
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      stopBackgroundMusic();
+    };
+  }, [playBackgroundMusic, stopBackgroundMusic]);
   const animatedBox = {
     width: 30,
     height: 30,
@@ -34,7 +79,9 @@ const HeadShow3 = () => {
       <div className="mt-4 flex justify-center">
         <button
           className={`px-4 py-2 rounded-md bg-yellow-500 text-white font-semibold shadow ${
-            isPlaying || !hasCompletedOnce ? "opacity-50 cursor-not-allowed" : "hover:bg-yellow-600"
+            isPlaying || !hasCompletedOnce
+              ? "opacity-50 cursor-not-allowed"
+              : "hover:bg-yellow-600"
           }`}
           disabled={isPlaying || !hasCompletedOnce}
           onClick={() => {
@@ -62,6 +109,16 @@ const HeadShow3 = () => {
             ease: "linear",
             delay: 0.2,
           }}
+          onAnimationStart={() => {
+            // Play coin drop sound when animation starts (coin moving down)
+            setTimeout(() => playCoinDrop(), 200);
+          }}
+          onUpdate={(latest) => {
+            // Play coin return sound when coin starts moving back up
+            if (latest.y === 180 && latest.x === 20) {
+              setTimeout(() => playCoinReturn(), 100);
+            }
+          }}
         />
         <motion.div
           style={animatedBox}
@@ -76,6 +133,16 @@ const HeadShow3 = () => {
             times: roundTripTimes,
             ease: "linear",
             delay: 0.4,
+          }}
+          onAnimationStart={() => {
+            // Play coin drop sound when animation starts (coin moving down)
+            setTimeout(() => playCoinDrop(), 400);
+          }}
+          onUpdate={(latest) => {
+            // Play coin return sound when coin starts moving back up
+            if (latest.y === 200 && latest.x === 50) {
+              setTimeout(() => playCoinReturn(), 100);
+            }
           }}
         />
 
@@ -92,6 +159,16 @@ const HeadShow3 = () => {
             times: roundTripTimes,
             ease: "linear",
             delay: 0.6,
+          }}
+          onAnimationStart={() => {
+            // Play coin drop sound when animation starts (coin moving down)
+            setTimeout(() => playCoinDrop(), 600);
+          }}
+          onUpdate={(latest) => {
+            // Play coin return sound when coin starts moving back up
+            if (latest.y === 140 && latest.x === 90) {
+              setTimeout(() => playCoinReturn(), 100);
+            }
           }}
         />
 

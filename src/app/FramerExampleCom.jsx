@@ -7,6 +7,10 @@ import HeadShow4 from "./components/HeadShow4";
 import HeadShow5 from "./components/HeadShow5";
 import ShowCards from "./components/ShowCards";
 import SingleRowShowCards from "./components/SingleRowShowCards";
+import CarouselShowCards from "./components/CarouselShowCards";
+import DealToPilesShowCards from "./components/DealToPilesShowCards";
+import FanSpreadShowCards from "./components/FanSpreadShowCards";
+import GridFlipShowCards from "./components/GridFlipShowCards";
 
 const FramerExampleCom = () => {
   return (
@@ -69,6 +73,42 @@ const FramerExampleCom = () => {
       <div className="w-full max-w-4xl mt-2 ml-5">
         <div className="grid grid-cols-2 gap-6">
           <SingleRowShowCards />
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className="w-full max-w-4xl mt-2 ml-5">
+        <div className="grid grid-cols-2 gap-6">
+          <CarouselShowCards />
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className="w-full max-w-4xl mt-2 ml-5">
+        <div className="grid grid-cols-2 gap-6">
+          <DealToPilesShowCards />
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className="w-full max-w-4xl mt-2 ml-5">
+        <div className="grid grid-cols-2 gap-6">
+          <FanSpreadShowCards />
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className="w-full max-w-4xl mt-2 ml-5">
+        <div className="grid grid-cols-2 gap-6">
+          <GridFlipShowCards />
         </div>
       </div>
       <br />

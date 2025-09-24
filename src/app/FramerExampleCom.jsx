@@ -11,6 +11,7 @@ import CarouselShowCards from "./components/CarouselShowCards";
 import DealToPilesShowCards from "./components/DealToPilesShowCards";
 import FanSpreadShowCards from "./components/FanSpreadShowCards";
 import GridFlipShowCards from "./components/GridFlipShowCards";
+import LudoCoinFlip from "./components/LudoCoinFlip";
 
 const FramerExampleCom = () => {
   return (
@@ -109,6 +110,15 @@ const FramerExampleCom = () => {
       <div className="w-full max-w-4xl mt-2 ml-5">
         <div className="grid grid-cols-2 gap-6">
           <GridFlipShowCards />
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className="w-full max-w-4xl mt-2 ml-5">
+        <div className="grid grid-cols-2 gap-6">
+          <LudoCoinFlip />
         </div>
       </div>
       <br />

@@ -16,6 +16,8 @@ import LudoDiceSpin from "./components/LudoDiceSpin";
 import LudoDiceBounce from "./components/LudoDiceBounce";
 import LudoDiceScatter from "./components/LudoDiceScatter";
 import LudoDiceMultiRoll from "./components/LudoDiceMultiRoll";
+import LudoDicePairRoll from "./components/LudoDicePairRoll";
+import LudoDiceGridRain from "./components/LudoDiceGridRain";
 // Removed incorrect head/tail coin examples
 
 const FramerExampleCom = () => {
@@ -144,6 +146,16 @@ const FramerExampleCom = () => {
         <div className="grid grid-cols-2 gap-6">
           <LudoDiceScatter />
           <LudoDiceMultiRoll />
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className="w-full max-w-4xl mt-2 ml-5">
+        <div className="grid grid-cols-2 gap-6">
+          <LudoDicePairRoll />
+          <LudoDiceGridRain />
         </div>
       </div>
       <br />

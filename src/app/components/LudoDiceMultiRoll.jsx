@@ -68,7 +68,18 @@ const LudoDiceMultiRoll = () => {
   const [busy, setBusy] = useState(false);
   const [values, setValues] = useState([1, 1, 1, 1]);
   const audioRef = useRef(null);
-  const faceRotations = useMemo(() => ({ 1:{x:-90,y:0},2:{x:180,y:0},3:{x:0,y:-90},4:{x:0,y:90},5:{x:0,y:0},6:{x:90,y:0} }), []);
+  // Align with face layout used in JSX: front=1, back=6, right=3, left=4, top=2, bottom=5
+  const faceRotations = useMemo(
+    () => ({
+      1: { x: 0, y: 0 },
+      2: { x: 90, y: 0 },
+      3: { x: 0, y: -90 },
+      4: { x: 0, y: 90 },
+      5: { x: -90, y: 0 },
+      6: { x: 0, y: 180 },
+    }),
+    []
+  );
 
   const rollAll = async () => {
     if (busy) return;

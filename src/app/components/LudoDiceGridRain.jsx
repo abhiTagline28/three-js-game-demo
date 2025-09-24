@@ -18,11 +18,13 @@ const Dice = ({ ctrl, left }) => {
         <div className={`${faceBase} rounded-xl bg-white shadow-xl border border-neutral-200`} style={faceStyle(`rotateY(180deg) translateZ(${SIZE / 2}px)`) }>
           <div className="grid grid-cols-3 grid-rows-3 gap-1.5">
             <div className="flex items-center justify-center"><Pip/></div>
+            <div/>
             <div className="flex items-center justify-center"><Pip/></div>
             <div className="flex items-center justify-center"><Pip/></div>
-            <div/> <div/> <div/>
+            <div/>
             <div className="flex items-center justify-center"><Pip/></div>
             <div className="flex items-center justify-center"><Pip/></div>
+            <div/>
             <div className="flex items-center justify-center"><Pip/></div>
           </div>
         </div>
@@ -70,7 +72,7 @@ const LudoDiceGridRain = () => {
   const [busy, setBusy] = useState(false);
   const [values, setValues] = useState(new Array(9).fill(1));
   const audioRef = useRef(null);
-  const faceRotations = useMemo(() => ({ 1:{x:-90,y:0},2:{x:180,y:0},3:{x:0,y:-90},4:{x:0,y:90},5:{x:0,y:0},6:{x:90,y:0} }), []);
+  const faceRotations = useMemo(() => ({ 1:{x:0,y:0},2:{x:90,y:0},3:{x:0,y:-90},4:{x:0,y:90},5:{x:-90,y:0},6:{x:0,y:180} }), []);
 
   const rain = async () => {
     if (busy) return;

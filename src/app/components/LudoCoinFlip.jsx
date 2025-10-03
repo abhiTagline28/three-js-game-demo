@@ -17,13 +17,13 @@ const LudoCoinFlip = () => {
   // Face assignments: front=1, back=6, right=3, left=4, top=5, bottom=2
   const faceRotations = useMemo(
     () => ({
-      1: { x: -90, y: 0 }, // bring front to top
+      1: { x: 0, y: 0, }, // bring front to top
       // NOTE: On this cube build, 2 and 6 were inverted in practice.
       // Swap mappings so the displayed top face matches the reported value.
       2: { x: 90, y: 0 }, // back to top (renders the 2 face in this build)
       3: { x: 0, y: -90 }, // right to top
       4: { x: 0, y: 90 }, // left to top
-      5: { x: 0, y: 0 }, // top already
+      5: {  x: -90, y: 0 }, // top already
       6: { x: 180, y: 0 }, // bottom to top (renders the 6 face in this build)
     }),
     []

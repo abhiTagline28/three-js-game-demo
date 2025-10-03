@@ -16,11 +16,11 @@ const LudoDiceBounce = () => {
       // Map desired TOP face value -> cube orientation
       // This cube's build has 2 and 6 inverted relative to naive mapping.
       // Adjust so the displayed top face equals the reported `value`.
-      1: { x: -90, y: 0 },
+      1: { x: 0, y: 0 },
       2: { x: 90, y: 0 },
       3: { x: 0, y: -90 },
       4: { x: 0, y: 90 },
-      5: { x: 0, y: 0 },
+      5: { x: -90, y: 0 },
       6: { x: 180, y: 0 },
     }),
     []

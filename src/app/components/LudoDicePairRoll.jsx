@@ -3,7 +3,7 @@
 import React, { useMemo, useRef, useState } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 
-const CUBE = 96;
+const CUBE = 80;
 
 const Dice = ({ ctrl, offset }) => {
   const Pip = () => <div className="w-3 h-3 rounded-full bg-neutral-900" />;
@@ -73,7 +73,17 @@ const LudoDicePairRoll = () => {
   const [busy, setBusy] = useState(false);
   const [values, setValues] = useState([1, 1]);
   const audioRef = useRef(null);
-  const faceRotations = useMemo(() => ({ 1:{x:-90,y:0},2:{x:180,y:0},3:{x:0,y:-90},4:{x:0,y:90},5:{x:0,y:0},6:{x:90,y:0} }), []);
+  const faceRotations = useMemo(
+    () => ({
+      1: { x: 0, y: 0 },
+      2: { x: 90, y: 0 },
+      3: { x: 0, y: -90 },
+      4: { x: 0, y: 90 },
+      5: { x: -90, y: 0 },
+      6: { x: 180, y: 0 },
+    }),
+    []
+  );
 
   const roll = async () => {
     if (busy) return;
@@ -85,12 +95,28 @@ const LudoDicePairRoll = () => {
       const { x, y } = faceRotations[finals[i]];
       const dir = i === 0 ? -1 : 1;
       return ctrl.start({
-        x: [dir*40*0.3, dir*40],
+        x: [dir * 40 * 0.3, dir * 40],
         y: [0, -60, -10],
-        rotateX: [0, 450 + x],
-        rotateY: [0, 450 + y],
-        rotateZ: [0, 10*dir, 0],
-        transition: { duration: 1.1, ease: "easeOut", times:[0,0.6,1] },
+        rotateX: [
+          0,
+          200,
+          320,
+          360 + x,
+          200 + 360 + x,
+          320 + 360 + x,
+          360 + 360 + x,
+        ],
+        rotateY: [
+          0,
+          160,
+          280,
+          360 + y,
+          160 + 360 + y,
+          280 + 360 + y,
+          360 + 360 + y,
+        ],
+        rotateZ: [0, 10 * dir, 0],
+        transition: { duration: 1.5, ease: "easeOut", times: [0, 0.6, 1] },
       });
     });
 
@@ -127,5 +153,3 @@ const LudoDicePairRoll = () => {
 };
 
 export default LudoDicePairRoll;
-
-

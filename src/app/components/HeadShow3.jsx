@@ -33,7 +33,7 @@ const HeadShow3 = () => {
         stopBackgroundMusic();
       } else {
         // Tab is visible, start background music
-        playBackgroundMusic();
+        // playBackgroundMusic();
       }
     };
 
@@ -42,7 +42,7 @@ const HeadShow3 = () => {
 
     // Start background music when component mounts (if tab is visible)
     if (!document.hidden) {
-      playBackgroundMusic();
+      // playBackgroundMusic();
     }
 
     // Cleanup event listener on unmount
@@ -77,7 +77,12 @@ const HeadShow3 = () => {
       </div>
 
       <div className="mt-4 flex justify-center">
-        <button
+        <motion.button
+          whileHover={{
+            scale: 1.2,
+            transition: { duration: 0.1 },
+          }}
+          whileTap={{ scale: 0.8 }}
           className={`px-4 py-2 rounded-md bg-yellow-500 text-white font-semibold shadow ${
             isPlaying || !hasCompletedOnce
               ? "opacity-50 cursor-not-allowed"
@@ -90,7 +95,7 @@ const HeadShow3 = () => {
           }}
         >
           Show again
-        </button>
+        </motion.button>
       </div>
 
       {/* Animated boxes */}

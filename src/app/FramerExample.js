@@ -19,9 +19,9 @@ const FramerExample = () => {
         transition={{
           duration: 1, // 1 second duration
           ease: "easeInOut", // Smooth easing
-          repeat: 0, // Repeat infinitely
-          //   repeat: Infinity, // Repeat infinitely
-          //   repeatType: "reverse", // Reverse the animation (go back up)
+          // repeat: 0, // Repeat infinitely
+          repeat: Infinity, // Repeat infinitely
+          repeatType: "reverse", // Reverse the animation (go back up)
           // repeatType: "reverse", // Reverse the animation (go back up)
         }}
       />
@@ -33,7 +33,9 @@ const FramerExample = () => {
         transition={{
           duration: 1,
           ease: "easeInOut",
-          repeat: 0,
+          // repeat: 0,
+          repeat: Infinity, // Repeat infinitely
+          repeatType: "loop",
         }}
       />
       <motion.div
@@ -44,7 +46,9 @@ const FramerExample = () => {
         transition={{
           duration: 1,
           ease: "easeInOut",
-          repeat: 0,
+          // repeat: 0,
+          repeat: Infinity, // Repeat infinitely
+          repeatType: "mirror",
         }}
       />
     </div>

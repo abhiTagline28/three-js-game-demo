@@ -22,152 +22,101 @@ import LudoDiceGridRain from "./components/LudoDiceGridRain";
 
 const FramerExampleCom = () => {
   return (
-    <>
+    <div className="flex flex-col gap-50 justify-center items-center">
       <FramerExample />
       <div className="w-full max-w-4xl mt-2">
         <div className="grid grid-cols-2 gap-6">
           <HeadShow1 />
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
+
       <div className="w-full max-w-4xl mt-2">
         <div className="grid grid-cols-2 gap-6">
           <HeadShow2 />
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
+
       <div className="w-full max-w-4xl mt-2">
         <div className="grid grid-cols-2 gap-6">
           <HeadShow3 />
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
+
       <div className="w-full max-w-4xl mt-2">
         <div className="grid grid-cols-2 gap-6">
           <HeadShow4 />
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
+
       <div className="w-full max-w-4xl mt-2">
         <div className="grid grid-cols-2 gap-6">
           <HeadShow5 />
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
+
       <div className="w-full max-w-4xl mt-2 ml-5">
         <div className="grid grid-cols-2 gap-6">
           <ShowCards />
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
+
       <div className="w-full max-w-4xl mt-2 ml-5">
         <div className="grid grid-cols-2 gap-6">
           <SingleRowShowCards />
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
+
       <div className="w-full max-w-4xl mt-2 ml-5">
         <div className="grid grid-cols-2 gap-6">
           <CarouselShowCards />
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
+
       <div className="w-full max-w-4xl mt-2 ml-5">
         <div className="grid grid-cols-2 gap-6">
           <DealToPilesShowCards />
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
+
       <div className="w-full max-w-4xl mt-2 ml-5">
         <div className="grid grid-cols-2 gap-6">
           <FanSpreadShowCards />
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
+
       <div className="w-full max-w-4xl mt-2 ml-5">
         <div className="grid grid-cols-2 gap-6">
           <GridFlipShowCards />
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
+
       <div className="w-full max-w-4xl mt-2 ml-5">
         <div className="grid grid-cols-2 gap-6">
           <LudoCoinFlip />
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
+
       <div className="w-full max-w-4xl mt-2 ml-5">
         <div className="grid grid-cols-2 gap-6">
           <LudoDiceSpin />
           <LudoDiceBounce />
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
+
       <div className="w-full max-w-4xl mt-2 ml-5">
         <div className="grid grid-cols-2 gap-6">
           <LudoDiceScatter />
           <LudoDiceMultiRoll />
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
+
       <div className="w-full max-w-4xl mt-2 ml-5">
         <div className="grid grid-cols-2 gap-6">
           <LudoDicePairRoll />
           <LudoDiceGridRain />
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      
-      <br />
-      <br />
-      <br />
-      <br />
-    </>
+    </div>
   );
 };
 

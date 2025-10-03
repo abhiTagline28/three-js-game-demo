@@ -267,7 +267,6 @@ const HeadShow5 = () => {
               }}
             >
               <Image src="/head1.png" alt="Head" fill sizes="160px" priority />
-              {/* <Image src="/head.png" alt="Head" fill sizes="160px" priority /> */}
             </div>
             <div
               style={{
@@ -280,8 +279,7 @@ const HeadShow5 = () => {
                 filter: "drop-shadow(0 10px 18px rgba(0,0,0,0.25))",
               }}
             >
-              <Image src="/head1.png" alt="Tail" fill sizes="160px" priority />
-              {/* <Image src="/tail.png" alt="Tail" fill sizes="160px" priority /> */}
+              <Image src="/tail.png" alt="Tail" fill sizes="160px" priority />
             </div>
           </motion.div>
         </motion.div>
